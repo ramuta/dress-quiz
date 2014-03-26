@@ -25,7 +25,7 @@ test("/", function() {
 
   // helper waiting the application is idle before running the callback
   andThen(function() {
-    equal(find("h2").text(), "Welcome to DressQuiz", "Application header is rendered");
-    equal(find("li").length, 3, "There are three items in the list");
+    equal(find("h2").text(), "What is this item's brand?", "Application header is rendered");
+    equal(find("a:not(.navbar-brand)").length, 4, "There are four brands");
   });
 });
