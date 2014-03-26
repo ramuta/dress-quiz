@@ -19,7 +19,7 @@ module("Integration tests", {
 });
 
 // QUnit test case
-test("/", function() {
+test("title, 4 brands and image", function() {
   // async helper telling the application to go to the '/' route
   visit("/");
 
@@ -27,5 +27,6 @@ test("/", function() {
   andThen(function() {
     equal(find("h2").text(), "What is this item's brand?", "Application header is rendered");
     equal(find("a:not(.navbar-brand)").length, 4, "There are four brands");
+    equal(find("img").length, 1, "There is 1 image");
   });
 });

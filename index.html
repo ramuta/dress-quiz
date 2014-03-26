@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/lib/bootstrap.min.css">
 </head>
+
 <body>
 {% raw %} <!-- raw tag is needed to escape jinja errors -->
 
@@ -19,8 +20,6 @@
                 {{/link-to}}
             </div>
         </nav>
-
-
 
         {{outlet}}
     </script>
@@ -54,10 +53,13 @@
         <h2>What is this item's brand?</h2>
         <br>
 
-        <div><a class="btn btn-default">Gucci</a></div>
-        <div><a class="btn btn-default">Zara</a></div>
-        <div><a class="btn btn-default">Louboutin</a></div>
-        <div><a class="btn btn-default">Peko</a></div>
+        {{itemsNumber}}
+
+        <div><a class="btn btn-default">{{model.brand}}</a></div>
+
+        {{#each alternative in alternatives}}
+            <div><a class="btn btn-default">{{alternative}}</a></div>
+        {{/each}}
     </script>
 
     <!-- libs -->
@@ -69,8 +71,18 @@
 
     <!-- app js files -->
     <script src="js/app.js"></script>
+
+    <script src="js/models/item_model.js"></script>
+
+    <script src="js/fixtures/item_fixtures.js"></script>
+
+    <script src="js/routes/application_routes.js"></script>
+
+    <script src="js/controllers/application_controllers.js"></script>
+
     <script src="js/views/quiz_image_view.js"></script>
     <script src="js/views/quiz_answer_view.js"></script>
+
     <script src="tests/runner.js"></script>
 
 {% endraw %}
