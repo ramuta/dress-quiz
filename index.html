@@ -9,7 +9,8 @@
 </head>
 <body>
 {% raw %} <!-- raw tag is needed to escape jinja errors -->
-    
+
+    <!-- DEFAULT -->
     <script type="text/x-handlebars">
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
@@ -19,17 +20,44 @@
             </div>
         </nav>
 
-        <h2>Welcome to DressQuiz</h2>
+
 
         {{outlet}}
     </script>
 
+    <!-- INDEX -->
     <script type="text/x-handlebars" id="index">
-        <ul>
-            {{#each item in model}}
-                <li>{{item}}</li>
-            {{/each}}
-        </ul>
+        <div class="row">
+            <!-- image view -->
+            <div class="col-md-6">
+                {{view App.QuizImageView}}
+            </div>
+
+            <!-- answers view -->
+            <div class="col-md-6">
+                {{view App.QuizAnswerView}}
+            </div>
+        </div>
+    </script>
+
+    <!-- QUIZ IMAGE VIEW -->
+    <script type="text/x-handlebars" id="quiz_image">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <img src="http://highheelsstore.pic6.eznetonline.com/upload/Christian_Louboutin_Daffodile_160mm_Black_OZ9V.jpg">
+            </div>
+        </div>
+    </script>
+
+    <!-- QUIZ ANSWER VIEW -->
+    <script type="text/x-handlebars" id="quiz_answer">
+        <h2>What is this item's brand?</h2>
+        <br>
+
+        <div><button class="btn btn-default">Gucci</button></div>
+        <div><button class="btn btn-default">Zara</button></div>
+        <div><button class="btn btn-default">Louboutin</button></div>
+        <div><button class="btn btn-default">Peko</button></div>
     </script>
 
     <!-- libs -->
@@ -40,6 +68,8 @@
 
     <!-- app js files -->
     <script src="js/app.js"></script>
+    <script src="js/views/QuizImageView.js"></script>
+    <script src="js/views/QuizAnswerView.js"></script>
     <script src="tests/runner.js"></script>
 
 {% endraw %}

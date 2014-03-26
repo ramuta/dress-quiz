@@ -2,3 +2,7 @@
 .ember-application {
     margin: 20px;
 }
+
+.btn.btn-default {
+    margin-bottom: 10px;
+}
